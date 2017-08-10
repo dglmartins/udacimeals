@@ -2,6 +2,7 @@ import {
   ADD_RECIPE,
   REMOVE_FROM_CALENDAR
 } from '../actions';
+import  { combineReducers } from 'redux';
 
 function food (state = {}, action) {
   switch (action.ype) {
@@ -12,7 +13,7 @@ function food (state = {}, action) {
         [recipe.label]: recipe
       };
     default:
-      return state;      
+      return state;
   }
 }
 
@@ -79,4 +80,7 @@ function calendar (state = initialCalendarState, action) {
   };
 }
 
-export default calendar;
+export default combineReducers({
+  food,
+  calendar
+});
